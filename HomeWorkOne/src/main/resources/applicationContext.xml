@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+	<context:property-placeholder location="spring.properties"/>
+	<bean id="coords" class="ru.homeworkone.Coords" scope="prototype">
+		<property name="x" value="32"/>
+		<property name="y" value="75"/>
+
+	</bean>
+	<bean id="point" class="ru.homeworkone.Point " scope="prototype">
+		<property name="color" value="Green"/>
+<!--		<property name="coords" ref="coords"/>-->
+		<constructor-arg ref="coords" />
+	</bean>
+	<bean id="circle" class="ru.homeworkone.Circle" scope="prototype">
+		<constructor-arg ref="coords"/>
+		<property name="center" value="${center}"/>
+		<property name="radius" value="${radius}"/>
+		<property name="color"  value="${color}"/>
+	</bean>
+
+	<bean id = "scene" class="ru.homeworkone.Scene"
+		  factory-method="getInstance">
+		<property name="shapeList">
+		<array>
+			<ref bean="circle"/>
+			<ref bean="point"/>
+		</array>
+		</property>
+		 
+<!--		 />-->
+<!--		  <constructor-arg ref="list"/>-->
+	</bean>
+
+	<util:list id="listFactoryBean" value-type="ru.homeworkone.Shape">
+		<ref bean="circle"/>
+		<ref bean="point"/>
+	</util:list>
+
+
+
+
+
+
+</beans>
