@@ -1,11 +1,14 @@
 package ru.homeworkone;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+
 public class Circle extends Shape{
 
     private Coords coords;
     private int center;
     private int radius;
-
+    @Autowired
     public Circle (Coords coords) {
         this.coords = coords;
         this.coords.setX(39);
@@ -24,7 +27,7 @@ public class Circle extends Shape{
     public double getCenter() {
         return center;
     }
-
+    @Value("${center}")
     public void setCenter(int center) {
         this.center = center;
     }
@@ -32,17 +35,11 @@ public class Circle extends Shape{
     public int getRadius() {
         return radius;
     }
-
+    @Value("${radius}")
     public void setRadius(int radius) {
         this.radius = radius;
     }
-    public void setX(int x){
-        coords.setX(32);
-    }
 
-    public void setY(int y){
-        coords.setY(67);
-    }
     @Override
     public void draw() {
         System.out.println(toString());

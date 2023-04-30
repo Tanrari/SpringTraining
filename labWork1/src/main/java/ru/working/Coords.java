@@ -1,8 +1,15 @@
-package ru.homeworkone;
+package ru.working;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component("soords")
+@Scope(scopeName = "prototype")
 public class Coords {
+    @Value("23")
     private int x;
+    @Value("33")
     private int  y;
 
     public Coords() {

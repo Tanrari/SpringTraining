@@ -1,4 +1,4 @@
-package ru.homeworkone;
+package ru.working;
 
 public abstract class Shape {
     private String color;

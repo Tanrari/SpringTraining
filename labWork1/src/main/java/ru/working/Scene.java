@@ -1,8 +1,13 @@
-package ru.homeworkone;
+package ru.working;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 //Singleton
+
+@Scope(scopeName = "singleton")
 public final class Scene {
     private static Scene INSTANCE;
     private List<Shape> shapeList;
@@ -11,13 +16,6 @@ public final class Scene {
 
     }
 
-//    public static synchronized Scene getInstance(ArrayList listFactoryBean) {
-//        if (INSTANCE==null){
-//            INSTANCE = new Scene();
-//        }
-//        return INSTANCE;
-//
-//    }
 
     public void setShapeList(List<Shape> shapeList) {
         this.shapeList = shapeList;

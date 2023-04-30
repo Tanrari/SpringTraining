@@ -1,8 +1,5 @@
 package ru.homeworkone;
 
-import org.springframework.beans.factory.config.ListFactoryBean;
-
-import java.util.ArrayList;
 import java.util.List;
 
 //Singleton
